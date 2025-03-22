@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umesh-Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/base.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<style>
+    @media (max-width: 640px) {
+    #menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+    }
+
+    #menu a {
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+}
+
+    html {
+    scroll-behavior: smooth;
+}
+.typing-container {
+    display: flex;
+    align-items: center;
+}
+.typing-text::after {
+    content: "|";
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 0 5%;
+}
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+.image-container img {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    border: 8px solid #ffcc00;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 20px; /* Added margin top */
+    border-radius: 15px; /* Changed to rounded rectangle */
+}
+.skills-section {
+    text-align: center;
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.skill {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.skill span {
+    font-weight: bold;
+}
+
+.progress {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #ffcc00;
+    transition: width 1s ease-in-out;
+}
+.services-section {
+    text-align: center;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #f9f9f9, #fff);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.service-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #ffcc00;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover .service-icon {
+    transform: rotateY(360deg);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.service-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffcc00;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-btn i {
+    margin-left: 5px;
+}
+
+.service-btn:hover {
+    color: #ff9900;
+}
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.filter-btn {
+    margin: 5px;
+}
+#contact {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 60px 0;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    padding: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #0056b3, #004494);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+}
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+.footer-section{
+    background-color: white;
+    text-align:center;
+    margin-bottom:3px;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+.logo{
+    height:75px;
+    width:75px;
+}
+.hero{
+    margin-top:10px;
+}
+</style>
+<body>
+    <section id="home">
+        <header class="absolute inset-x-0 top-0 z-50 bg-white shadow-md">
+            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="#" class="m-0.5 p-0.5">
+                        <span class="sr-only">Umesh</span>
+                        <img class="logo" src="assests/Logo.png" alt="Logo">
+                    </a>
+                </div>
+                <button id="menu-toggle" class="sm:hidden text-gray-900 hover:text-yellow-500 focus:outline-none">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+                <div id="menu" class="hidden sm:flex flex-col sm:flex-row absolute sm:static bg-white sm:bg-transparent w-full sm:w-auto left-0 top-16 p-5 sm:p-0 shadow-md sm:shadow-none space-x-8">
+                    <a href="#" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">Home</a>
+                    <a href="/assests/j.Umesh 2.0.pdf" target="_blank" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">My Resume</a>
+                    <a href="#skills" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">Skills</a>
+                    <a href="#Internship" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">Internship</a>
+                    <a href="#projects" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">Projects</a>
+                    <a href="#contact" class="text-md/6 font-semibold text-gray-900 hover:text-yellow-500 block sm:inline">Contact</a>
+                </div>
+            </nav>
+        </header>
+        
+    </section>
+    
+    <section id="about" class="hero mt-20 px-4 sm:px-6 lg:px-8">
+        <div class="hero-section flex flex-col md:flex-row items-center justify-between">
+            <div class="text-content text-center md:text-left">
+                <h3 class="text-2xl font-bold">Hello!</h3>
+                <h2 class="text-4xl font-extrabold typing-container">I'm&nbsp;<span class="typing-text text-yellow-500">Umesh Chandra</span></h2>
+                <div class="mt-4">
+                    <a href="#contact"><button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-black hover:text-yellow-500">Hire Me</button></a>
+                    <a href="#projects"><button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-black hover:text-yellow-500">My Works</button></a>
+                    <a href="/assests/j.Umesh 2.0.pdf" target="_blank"><button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-black hover:text-yellow-500">Download Resume</button></a>
+                </div>
+                <div class="mt-5">
+                    <h3 class="text-4xl font-extrabold text-yellow-500">About Me</h3>
+                    <h2 class="text-xl font-bold">Aspiring Electronics and Communication Engineering student <br/> with a strong foundation in
+                        computer science and electronics.<br/>Skilled in problem-solving and technical documentation, with<br/>
+                        a passion for innovation. Seeking a role to apply my expertise<br/> and contribute to organizational 
+                        goals in a forward-thinking <br/>environment. I have experience in AI/ML,cybersecurity, and <br/>I love solving complex problems through technology.</h2>
+                </div>
+                <div class = "mt-5">
+                    <a href = "https://www.linkedin.com/in/umesh-chandra-62b501213/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bi bi-linkedin fa-2x mr-5 hover:text-yellow-500"></i></a>
+                    <a href = "https://github.com/Jollireddyumesh"><i class = "bi bi-github fa-2x mr-5 hover:text-yellow-500"></i></a>
+                    <a href = ""></a>
+                </div>
+            </div>
+            <div class="image-container mt-5 md:mt-0">
+                <img src="umesh_pic.jpg" alt="My_Photo" class="w-50 h-64 sm:w-80 sm:h-96 md:w-80 md:h-[800px] object-cover border-8 border-whitw-500 shadow-lg clip-image">
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="skills-section">
+        <h2 class="section-title text-yellow-500">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Technical Skills:</h3>
+                <div class="skill"><span>java</span></div>
+                <div class="skill"><span>Python</span></div>
+                <div class="skill"><span>SQL</span></div>
+            </div>        
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill"><span>Problem Solving </span></div>
+                <div class="skill"><span>LeaderShip</span></div>
+                <div class="skill"><span>Collaborative Work</span></div>
+            </div>
+                <div class="skill-category">
+                    <h3>Hobbies </h3>
+                    <div class="skill"><span>Travelling</span></div>
+                </div>
+        </div>
+    </section>
+    <section id = "services"class="services-section">
+        <h2 class="section-title text-yellow-500">internship</h2>
+    
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Teachnook</h3>
+                <p>Developed a task management app during an internship with features including user 
+                    registration, task CRUD operations, categorization, priority setting, due dates, reminders, and 
+                    task completion. Implemented local data storage with SQL and designed an intuitive UI with 
+                    dark/light theme options to enhance user experience. </p>
+                <a href="https://www.linkedin.com/posts/umesh-chandra-62b501213_activity-7170860030177529857-tf-D?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYAdkMBquYNnQ-sgWmmxWCyJI6AfjN75sc" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+    </section>
+    <section id = "projects" class = "services-section">
+        <h2 class="section-title text-yellow-500">Projects</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon"><i class="bi bi-hospital"></i></div>
+                <h3> AI-Powered System for Early Detection of Alzheimer’s Disease Website</h3>
+                <a href="https://pdf.ac/urrkB" target="_blank" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="bi bi-alarm"></i></div>
+                <h3> IoT-Based Medicine Reminder System with Buzzer Alerts for Elderly</h3>
+                <p>Designed for elderly individuals, this IoT-powered system provides timely medication 
+                    reminders through buzzer alerts, ensuring adherence to prescribed schedules and promoting 
+                    better health management </p>
+                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+<section id="contact" class="py-16 bg-gray-900 text-white flex justify-center items-center">
+    <div class="w-full max-w-lg glassmorphism p-8 rounded-lg shadow-xl">
+      <h2 class="text-3xl font-bold text-yellow-500 text-center mb-6">Contact Me</h2>
+      
+      <form id="contactForm" class="space-y-4">
+        <div class="relative">
+          <input type="text" id="name" placeholder="Your Name" required class="w-full p-4 pl-12 rounded-lg bg-white-800 text-black focus:ring-2 focus:ring-blue-500" />
+          <i class="absolute left-4 top-4 text-gray-400 fa fa-user"></i>
+        </div>
+        
+        <div class="relative">
+          <input type="email" id="email" placeholder="Your Email" required class="w-full p-4 pl-12 rounded-lg bg-white-800 text-black focus:ring-2 focus:ring-blue-500" />
+          <i class="absolute left-4 top-4 text-gray-400 fa fa-envelope"></i>
+        </div>
+        
+        <div class="relative">
+          <textarea id="message" rows="4" placeholder="Your Message" required class="w-full p-4 pl-12 rounded-lg bg-white-800 text-black focus:ring-2 focus:ring-blue-500"></textarea>
+          <i class="absolute left-4 top-4 text-gray-400 fa fa-comment"></i>
+        </div>
+        
+        <button type="submit" class="w-full p-4 bg-yellow-500 rounded-lg text-black font-bold hover:bg-black hover:text-yellow-500 transition-all duration-300">Send Message</button>
+      </form>
+      
+      <p id="successMessage" class="text-green-400 text-center mt-4 hidden">Message Sent Successfully! 🎉</p>
+    </div>
+  </section>
+  <section class = "footer-section">
+    <div class = "footer">
+        <h2>Made with <i class = "bi bi-heart"></i> by Umesh.</h2>
+    </div>
+  </section>
+</body>
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('menu').classList.toggle('hidden');
+});
+
+    const texts = ["Umesh Chandra", "Software  Developer","Electronics and Ai Specialist"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingSpeed = 150;
+const eraseSpeed = 100;
+const delayBetweenTexts = 1000;
+
+function typeEffect() {
+    const textSpan = document.querySelector(".typing-text");
+    const currentText = texts[textIndex];
+
+    if (isDeleting) {
+        textSpan.textContent = currentText.substring(0, charIndex--);
+    } else {
+        textSpan.textContent = currentText.substring(0, charIndex++);
+    }
+
+    let nextSpeed = isDeleting ? eraseSpeed : typingSpeed;
+
+    if (!isDeleting && charIndex === currentText.length + 1) {
+        isDeleting = true;
+        nextSpeed = delayBetweenTexts;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+    }
+
+    setTimeout(typeEffect, nextSpeed);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeEffect, typingSpeed);
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const category = this.getAttribute("data-filter");
+
+            projectCards.forEach((card) => {
+                if (category === "all" || card.classList.contains(category)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith("#")) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const category = this.getAttribute("data-filter");
+
+            projectCards.forEach((card) => {
+                if (category === "all" || card.classList.contains(category)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+    let form = this;
+    let successMessage = document.getElementById("successMessage");
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+    })
+    .then(response => {
+        if (response.ok) {
+            successMessage.classList.remove("d-none");
+            form.reset();
+            setTimeout(() => successMessage.classList.add("d-none"), 3000);
+        } else {
+            alert("Message Sent Successfully!");
+        }
+    })
+    .catch(error => console.log("Error:", error));
+});
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("successMessage").classList.remove("hidden");
+    setTimeout(() => document.getElementById("successMessage").classList.add("hidden"), 3000);
+  });
+</script>
+</html>
